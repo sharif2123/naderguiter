@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  nader-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - ADMIN_PASSWORD=nader2026
+      - ADMIN_EMAIL=nader@nadergator.com
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    restart: unless-stopped
